@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grafico das vaquinhas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
+    
+
+</head>
+  
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script>
+
+    const siteUrl = 'http://localhost/mimosa/'
+
+    // Make a request for a user with a given ID
+    axios.get(siteUrl + 'listar.php')
+    .then(function (response) {
+
+        console.log(response.data)
+
+        var vacasLabel = [];
+        var vacasPeso = [];
+
+        response.data.map((vaca) => {
+            vacasLabel.push(`RfId: ${vaca.rf_id}`);
+            vacasPeso.push(vaca.peso);
+        });
+
+        // console.log(vacaLabel)
+        // console.log(vacasPeso)
+        
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: vacasLabel,
+                datasets: [{
+                    data: vacasPeso,
+                    label: '# Vaqunhas',                    
+                    borderWidth: 1
+                }]
+            }
+        });
+        
+        
+        
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+    .finally(function () {
+        // always executed
+    });
+
+
+  
+    </script>
+
+    
+    
+  
+    
+    
+</body>
+</html>
