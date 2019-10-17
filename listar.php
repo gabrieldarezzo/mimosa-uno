@@ -1,7 +1,7 @@
 <?php
 
 
-$db = new PDO("mysql:host=localhost;dbname=mimosa;charset=utf8", 'root', '');  
+$db = new PDO("mysql:host=192.185.210.165;dbname=inwor702_mimosa;charset=utf8", 'inwor702_mimosa', 'QCf3vVVk#XjJ');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->exec("set names utf8"); //Garante UTF em versão < 5.3
 

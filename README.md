@@ -52,4 +52,11 @@ INSERT INTO vacas_peso (rf_id, peso, dt_cadastro) values (3213135, 83, '2019-10-
 
 
 
+DB:
+inwor702_mimosa
 
+Pass:
+QCf3vVVk#XjJ
+
+User:
+inwor702_mimosa
